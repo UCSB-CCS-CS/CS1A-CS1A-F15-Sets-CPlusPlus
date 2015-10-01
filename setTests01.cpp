@@ -8,7 +8,7 @@ class Set {
 
 public:
   string toString() {
-    return "You lose sucker!";
+    return "{}";
   }
 };
 
