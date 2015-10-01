@@ -10,7 +10,7 @@ LDFLAGS = -lgtest -lgtest_main -lstdc++
 
 all: ${BINARIES}
 
-setTests01: setTests01.o
+setTests01: setTests01.o set.o
 	${CXX} $(LDFLAGS) $^ -o $@
 
 clean:

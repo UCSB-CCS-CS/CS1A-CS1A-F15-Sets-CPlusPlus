@@ -1,16 +1,6 @@
 
-#include <string>
-using std::string;
-
+#include "set.h"
 #include <gtest/gtest.h>
-
-class Set {
-
-public:
-  string toString() {
-    return "{}";
-  }
-};
 
 TEST(SetTest, Static) {
   Set x;
