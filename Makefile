@@ -1,12 +1,16 @@
 
 
-CXX=g++
-# CXX=clang++
+#CXX=g++
+CXX=clang++
 
 BINARIES = setTests01
 
-CXXFLAGS = -Lgtest
-LDFLAGS = -lgtest -lgtest_main -lstdc++
+CXXFLAGS =
+#CXXFLAGS = -Lgtest
+
+#LDFLAGS = -lgtest -lgtest_main -lstdc++
+
+LDFLAGS=-lgtest_main -lgtest
 
 all: ${BINARIES}
 
