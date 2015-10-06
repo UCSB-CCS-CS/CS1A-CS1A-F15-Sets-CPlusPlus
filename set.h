@@ -9,6 +9,7 @@ class Set {
 
 public:
   string toString() const;
+  Set add(int newMember) const;
 };
 
 #endif // _SET_H_ 
