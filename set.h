@@ -6,8 +6,10 @@
 using std::string;
 
 class Set {
-
-public:
+ private:
+  bool isEmpty = true;
+  
+ public:
   string toString() const;
   Set add(int newMember) const;
 };

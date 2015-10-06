@@ -3,9 +3,14 @@
 #include "set.h"
 
 string Set::toString() const {
-  return "{}";
+  if (this->isEmpty)    
+    return "{}";
+  else
+    return "{1}";
 }
 
 Set Set::add(int newMember) const {
-  return Set(); // stub
+  Set result;
+  result.isEmpty = false;
+  return result;
 }
