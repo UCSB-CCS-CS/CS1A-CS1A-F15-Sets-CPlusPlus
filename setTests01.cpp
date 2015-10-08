@@ -15,5 +15,7 @@ TEST(SetTests, SingletonOneToString) {
 
 TEST(SetTests, BiggerSet) {
   Set x({3,7,4,9});
-  EXPECT_EQ(string("{3,7,4,9}"), x.toString());
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{3,4,7,9}"), x.toString());
 }

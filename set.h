@@ -7,7 +7,13 @@ using std::string;
 
 class Set {
  private:
-  bool isEmpty = true;
+  
+  struct SetElemNode {
+    int elem;
+    SetElemNode *next;
+  };
+
+  SetElemNode *head = NULL;
   
  public:
   // this is constructor for stuff such as Set x({2,3,4}),

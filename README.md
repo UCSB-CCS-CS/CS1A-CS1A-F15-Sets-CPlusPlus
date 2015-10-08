@@ -45,3 +45,18 @@ slower to work with---that's the tradeoff.  But they are almost
 always easier to design with, test, prove correctness of etc.
 
 
+# Canonical for loops
+
+Arrays:
+
+```C++
+for (i=0; i<size; i++) {
+    // do something with a[i]
+}
+```
+
+```C++
+for (Node *p=this->head; p!=NULL; p=p->next) {
+    // TODO: do someting with *p, or p->data
+}    
+```
