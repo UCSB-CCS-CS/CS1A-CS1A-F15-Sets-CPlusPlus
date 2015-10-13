@@ -4,9 +4,23 @@
 #include "set.h"
 using std::string;
 
+bool Set::contains(int x) {
+
+  for (SetElemNode *p=head ; p!=NULL ; p=p->next ) {
+    return  p->elem == x;
+  }
+
+  return false;
+
+}
 
 void Set::addElemToSetUnderConstruction(int x) {
-  
+
+  if ( this->contains(x) ) {
+    std::cerr << x << " already in set; not added" << std::endl;
+    return;
+  }
+
   std::cerr << "I should be adding "
 	    << x << " to my set" << std::endl;
   
@@ -15,7 +29,9 @@ void Set::addElemToSetUnderConstruction(int x) {
     return;
   }
 
+  
   SetElemNode *p = newSetElemNode(x);
+
   if ( x  <  head->elem  ) {
     // add new elem before
     p->next = head;

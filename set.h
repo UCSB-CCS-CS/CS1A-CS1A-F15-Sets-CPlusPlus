@@ -29,7 +29,7 @@ class Set {
   //  i.e. array literals
   Set (const std::initializer_list<int>& array);
   Set () {} ;
-  
+  bool contains(int x);
   std::string toString() const;
   Set add(int newMember) const;
 };
