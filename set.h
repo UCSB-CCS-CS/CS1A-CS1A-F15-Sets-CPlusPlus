@@ -12,6 +12,14 @@ class Set {
     SetElemNode *next;
   };
 
+  SetElemNode * newSetElemNode(int x) {
+    SetElemNode *p=new SetElemNode;
+    p->elem = x;
+    p->next = NULL;
+    return p;
+  }
+
+  
   SetElemNode *head = NULL;
 
   void addElemToSetUnderConstruction(int x);

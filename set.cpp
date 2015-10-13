@@ -4,22 +4,26 @@
 #include "set.h"
 using std::string;
 
+
 void Set::addElemToSetUnderConstruction(int x) {
   
   std::cerr << "I should be adding "
 	    << x << " to my set" << std::endl;
-
+  
   if (head==NULL) {
-    head = new SetElemNode;
-    head->elem = x;
-    head->next = NULL;
-  } else {
-    SetElemNode *p = new SetElemNode;
-    p->elem = x;
-    p->next = NULL;
-    head -> next = p;
+    head = newSetElemNode(x);
+    return;
   }
 
+  SetElemNode *p = newSetElemNode(x);
+  if ( x  <  head->elem  ) {
+    // add new elem before
+    p->next = head;
+    head = p;
+  } else {
+    // add new elem after
+    head -> next = p;
+  }
 }
 
 
