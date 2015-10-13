@@ -4,6 +4,20 @@
 #include "set.h"
 using std::string;
 
+void Set::addElemToSetUnderConstruction(int x) {
+  
+  std::cerr << "I should be adding "
+	    << x << " to my set" << std::endl;
+
+  if (head==NULL) {
+    head = new SetElemNode;
+    head->elem = x;
+    head->next = NULL;
+  }
+
+}
+
+
 Set::Set (const std::initializer_list<int>& array) {
   for (int elem: array) {
     this->addElemToSetUnderConstruction(elem);

@@ -1,11 +1,21 @@
 
 #include "set.h"
 #include <gtest/gtest.h>
+using std::string;
 
 TEST(SetTests, EmptySetToString) {
   Set x;
   EXPECT_EQ(string("{}"), x.toString());
 }
+
+TEST(SetTests, OneElementSet) {
+  Set x({5});
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{5}"), x.toString());
+}
+
+#if 0
 
 TEST(SetTests, SingletonOneToString) {
   Set x;
@@ -19,3 +29,6 @@ TEST(SetTests, BiggerSet) {
   //  even through object itself is not.
   EXPECT_EQ(string("{3,4,7,9}"), x.toString());
 }
+
+#endif
+

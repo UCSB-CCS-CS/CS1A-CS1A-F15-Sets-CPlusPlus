@@ -14,10 +14,7 @@ class Set {
 
   SetElemNode *head = NULL;
 
-  void addElemToSetUnderConstruction(int x) {
-    std::cerr << "I should be adding "
-	      << x << " to my set" << std::endl;
-  }
+  void addElemToSetUnderConstruction(int x);
   
  public:
   // this is constructor for stuff such as Set x({2,3,4}),
