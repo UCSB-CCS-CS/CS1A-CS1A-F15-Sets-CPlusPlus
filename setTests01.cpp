@@ -15,6 +15,14 @@ TEST(SetTests, OneElementSet) {
   EXPECT_EQ(string("{5}"), x.toString());
 }
 
+TEST(SetTests, TwoElemOutOfOrder) {
+  Set x({6,5});
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{6,5}"), x.toString());
+}
+
+
 #if 0
 
 TEST(SetTests, SingletonOneToString) {

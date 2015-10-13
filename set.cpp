@@ -13,6 +13,11 @@ void Set::addElemToSetUnderConstruction(int x) {
     head = new SetElemNode;
     head->elem = x;
     head->next = NULL;
+  } else {
+    SetElemNode *p = new SetElemNode;
+    p->elem = x;
+    p->next = NULL;
+    head -> next = p;
   }
 
 }
