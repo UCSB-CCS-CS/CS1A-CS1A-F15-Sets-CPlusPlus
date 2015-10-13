@@ -7,7 +7,8 @@ using std::string;
 bool Set::contains(int x) {
 
   for (SetElemNode *p=head ; p!=NULL ; p=p->next ) {
-    return  p->elem == x;
+    if (p->elem == x)
+      return true;
   }
 
   return false;
