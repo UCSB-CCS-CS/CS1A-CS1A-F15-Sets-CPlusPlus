@@ -14,6 +14,11 @@ LDFLAGS=-lgtest_main -lgtest
 
 all: ${BINARIES}
 
+tests: test
+
+test: ${BINARIES}
+	./setTests01
+
 setTests01: setTests01.o set.o
 	${CXX} $(LDFLAGS) $^ -o $@
 

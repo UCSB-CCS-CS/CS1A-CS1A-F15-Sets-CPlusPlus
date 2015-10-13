@@ -2,6 +2,13 @@
 #include <sstream>
 
 #include "set.h"
+using std::string;
+
+Set::Set (const std::initializer_list<int>& array) {
+  for (int elem: array) {
+    this->addElemToSetUnderConstruction(elem);
+  }
+}
 
 string Set::toString() const {
   std::ostringstream oss;
