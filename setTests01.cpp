@@ -106,3 +106,11 @@ TEST(SetTests, FourElemSetInsertedAs_2_4_6_5_gives_2_4_5_6) {
   //  even through object itself is not.
   EXPECT_EQ(string("{2,4,5,6}"), x.toString());
 }
+
+TEST(SetTests, SevenElemSetInsertedWayOutOfOrder) {
+  Set x({50,75,25,37,10,80,5,75,50,15,96,4,52,4,107});
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{4,5,10,15,25,37,50,52,75,80,96,107}"),
+	    x.toString());
+}
