@@ -24,37 +24,38 @@ void Set::addElemToSetUnderConstruction(int x) {
     return;
   }
 
+  SetElemNode *p = newSetElemNode(x);
+  
 #ifdef DEBUG_MESSAGES
   std::cerr << "I should be adding "
 	    << x << " to my set" << std::endl;
 #endif
   
   if (head==NULL) {
-    head = newSetElemNode(x);
+    head = p;
+    return;
+  }
+
+  if (x < head->elem) {
+    p->next = head;
+    head = p;
     return;
   }
   
-  SetElemNode *p = newSetElemNode(x);
-
-  if ( x  <  head->elem  ) {
-    // add new elem before
-    p->next = head;
-    head = p;
-  } else if (head->next == NULL) {
-    // add 2nd new elem immediately after head
-    head -> next = p;
-  } else {
-    // My list is of at least size 2.
-    // And my new elem goes in between, or at the end.
-    if ( x <   head->next->elem  ) {
-      // insert in the middle
-      p->next = head->next;
-      head->next = p;
-    } else {
-      // insert at the end
-      head->next->next = p  ;
-    }
+  // Find ib, a pointer to element that we need
+  // to insert x in front of.  trailIb will follow
+  // one node behind.
+  // We know that x is not in the list; we already checked.
+  // We know that x doesn't go at beginning of list.
+  
+  SetElemNode *trailib = NULL;
+  SetElemNode *ib;
+  for (ib=head; (ib!=NULL) && (ib->elem < x); ib=ib->next) {
+    // do something with ib;
+    trailib = ib;
   }
+  p->next = ib;
+  trailib->next = p;
 }
 
 
