@@ -18,18 +18,21 @@ bool Set::contains(int x) {
 void Set::addElemToSetUnderConstruction(int x) {
 
   if ( this->contains(x) ) {
+#ifdef DEBUG_MESSAGES
     std::cerr << x << " already in set; not added" << std::endl;
+#endif
     return;
   }
 
+#ifdef DEBUG_MESSAGES
   std::cerr << "I should be adding "
 	    << x << " to my set" << std::endl;
+#endif
   
   if (head==NULL) {
     head = newSetElemNode(x);
     return;
   }
-
   
   SetElemNode *p = newSetElemNode(x);
 
@@ -37,9 +40,20 @@ void Set::addElemToSetUnderConstruction(int x) {
     // add new elem before
     p->next = head;
     head = p;
-  } else {
-    // add new elem after
+  } else if (head->next == NULL) {
+    // add 2nd new elem immediately after head
     head -> next = p;
+  } else {
+    // My list is of at least size 2.
+    // And my new elem goes in between, or at the end.
+    if ( x <   head->next->elem  ) {
+      // insert in the middle
+      p->next = head->next;
+      head->next = p;
+    } else {
+      // insert at the end
+      head->next->next = p  ;
+    }
   }
 }
 

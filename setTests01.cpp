@@ -65,21 +65,30 @@ TEST(SetTests, BiggerDuplicateDetection) {
   EXPECT_EQ(string("{3,4}"), x.toString());
 }
 
-TEST(SetTests, ThreeElemInOrderSet) {
-  Set x({4,5,6});
+TEST(SetTests, ThreeElemSetInsertedAs_3_5_1_gives_1_3_5) {
+  Set x({3,5,1});
   // Canonical representation is ordered,
   //  even through object itself is not.
-  EXPECT_EQ(string("{4,5,6}"), x.toString());
+  EXPECT_EQ(string("{1,3,5}"), x.toString());
 }
+
+TEST(SetTests, ThreeElemSetInsertedAs_3_5_4_gives_3_4_5) {
+  Set x({3,5,4});
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{3,4,5}"), x.toString());
+}
+
+TEST(SetTests, ThreeElemSetInsertedAs_3_5_6_gives_3_5_6) {
+  Set x({3,5,6});
+  // Canonical representation is ordered,
+  //  even through object itself is not.
+  EXPECT_EQ(string("{3,5,6}"), x.toString());
+}
+
 
 #if 0
 
-TEST(SetTests, ThreeElemInOrderSet) {
-  Set x({4,5,6});
-  // Canonical representation is ordered,
-  //  even through object itself is not.
-  EXPECT_EQ(string("{4,5,6}"), x.toString());
-}
 
 TEST(SetTests, BiggerDuplicateDetectionPartFour) {
   Set x({4,4,4,4,3,3,4,3,6});
